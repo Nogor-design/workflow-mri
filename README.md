@@ -7,7 +7,12 @@ notes) and Workflow MRI reconstructs how work actually flows, exposes bottleneck
 work, and compliance risk, recommends automations with estimated time savings, and exports a
 governed handoff package with an audit trail.
 
-**Status:** 🏗️ Design complete, build not started (Phase 0). See [`DESIGN.md`](DESIGN.md).
+**Status:** Phase 1 static demo is live locally and ready for portfolio packaging.
+The hand-authored Meridian Claims bundle renders the full React workbench: landing,
+ingest summary, process graph, risk panel, automation recommendations, before/after
+simulation, Safe Mode redaction, and export handoff view. The engine remains in
+Phase 0/2 scaffold state; `make bundle` is still the next implementation milestone.
+See [`DESIGN.md`](DESIGN.md) and [`docs/roadmap.md`](docs/roadmap.md).
 
 ## How it's built
 
@@ -37,7 +42,7 @@ The Bundle is committed, so the public demo is a deterministic replay of a baked
 | [docs/portfolio-integration.md](docs/portfolio-integration.md) | How it links from the portfolio |
 | [docs/ideas/](docs/ideas/) | Original idea/brief docs (archived) |
 
-## Quick start (target — not yet implemented)
+## Quick start
 
 ```bash
 make bundle      # engine: samples/meridian-claims → bundles/<run>/
@@ -47,3 +52,9 @@ make web-build   # static export for GitHub Pages
 make evals       # synthetic-ground-truth metrics
 make test        # engine (pytest) + web (vitest)
 ```
+
+Current verification:
+
+- `cd web && npm run build` builds the GitHub Pages-ready static app.
+- `cd web && npm test` runs the web safety/unit checks.
+- `cd engine && python -m pytest` runs the schema smoke tests.

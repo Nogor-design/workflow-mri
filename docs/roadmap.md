@@ -15,10 +15,10 @@ previous one's "done" check passes.
 
 - [x] Repo skeleton, git init, idea docs archived to `docs/ideas/`.
 - [x] Design docs (`DESIGN.md` + `docs/`).
-- [ ] `engine/pyproject.toml`, package stubs, `Makefile` targets.
-- [ ] `web/` Vite + React + TypeScript app scaffold (empty shell that builds & deploys).
-- [ ] Pydantic schema stubs for the Bundle objects (no logic yet).
-- [ ] CI: build the static web app; deploy to GitHub Pages on push to `main`.
+- [x] `engine/pyproject.toml`, package stubs, `Makefile` targets.
+- [x] `web/` Vite + React + TypeScript app scaffold.
+- [x] Pydantic schema stubs for the Bundle objects.
+- [x] CI: build the static web app; deploy to GitHub Pages on push to `main`.
 
 **Done when:** an empty styled SPA deploys to a GitHub Pages URL and the repo reads like a
 serious project at first glance.
@@ -45,8 +45,10 @@ the engine can generate one. This front-loads the visual payoff and de-risks the
 **Done when:** a reviewer can click through the entire Meridian story and it looks like a
 finished product. **Capture the flagship screenshot/GIF here.**
 
-> Core views land 2026-06-20; build is green (`npm run build`). Remaining: hero/landing
-> entry, safe-mode toggle, morph animation, and the screenshot.
+> Core views landed 2026-06-20; build is green (`npm run build`). The landing entry,
+> Safe Mode toggle, before/after process graph mode, and deterministic replay bundle are
+> in place. Remaining: capture the flagship screenshot/GIF and publish the portfolio
+> case-study integration.
 
 ---
 
