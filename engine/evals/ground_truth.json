@@ -1,0 +1,26 @@
+{
+  "_comment": "Independently-authored expected results for the Meridian Claims sample. Written from the scenario design, NOT derived from engine code, so scoring the engine against it is meaningful. See docs/roadmap.md Phase 4.",
+  "expected_steps": [
+    "step_intake", "step_triage", "step_review", "step_approval",
+    "step_payment", "step_exception", "step_closure"
+  ],
+  "expected_bottleneck": "step_approval",
+  "expected_edges": [
+    {"from": "step_intake", "to": "step_triage", "kind": "normal"},
+    {"from": "step_triage", "to": "step_review", "kind": "duplicate"},
+    {"from": "step_review", "to": "step_approval", "kind": "normal"},
+    {"from": "step_approval", "to": "step_payment", "kind": "normal"},
+    {"from": "step_payment", "to": "step_closure", "kind": "normal"},
+    {"from": "step_review", "to": "step_exception", "kind": "exception"},
+    {"from": "step_exception", "to": "step_review", "kind": "loop"},
+    {"from": "step_intake", "to": "step_approval", "kind": "bypass"}
+  ],
+  "expected_risk_categories": [
+    "pii", "missing_approval", "review_bypass",
+    "ambiguous_ownership", "inconsistent_status", "low_confidence"
+  ],
+  "planted_pii": ["412-55-9981", "1979-03-04"],
+  "pii_source_files": [
+    "adjuster_notes_week12.txt", "approval_4471.txt", "claims_event_log.csv"
+  ]
+}

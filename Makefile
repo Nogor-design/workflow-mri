@@ -41,4 +41,4 @@ types:
 	@echo "TODO (Phase 2): generate web/src TS types from engine Pydantic schema"
 
 evals:
-	@echo "TODO (Phase 4): run evals against synthetic ground truth"
+	cd engine && python evals/run_evals.py

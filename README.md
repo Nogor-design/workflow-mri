@@ -37,6 +37,7 @@ The Bundle is committed, so the public demo is a deterministic replay of a baked
 | Doc | What |
 |---|---|
 | [`DESIGN.md`](DESIGN.md) | Canonical build-against spec (start here) |
+| [`CASE_STUDY.md`](CASE_STUDY.md) | Portfolio case study — problem, architecture, eval numbers, governance |
 | [docs/architecture.md](docs/architecture.md) | Two-artifact model, pipeline, repo layout, commands |
 | [docs/data-model.md](docs/data-model.md) | The Artifact Bundle contract (schema + examples) |
 | [docs/roadmap.md](docs/roadmap.md) | Phased build plan (sequenced for earliest "wow") |

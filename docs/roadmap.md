@@ -98,14 +98,17 @@ matches the golden Bundle's shape. ✅ **Met 2026-06-20** — promoted bundle dr
 
 **Goal:** prove it works and make it land.
 
-- [ ] `evals/` synthetic ground truth → extraction accuracy, risk recall, hallucination rate.
-- [ ] Case-study page: problem, architecture diagram, **eval numbers**, governance model,
-      "what I'd build next."
-- [ ] 2–3 min demo GIF/video, embedded.
+- [x] `evals/` independent ground truth → process/risk/PII recall + hallucination rate.
+      `make evals`; CI-guarded (`engine/tests/test_evals.py`). Results: 100% recall across
+      steps/edges/risks/PII, 0% hallucination (`engine/evals/report.md`).
+- [x] Case-study page ([CASE_STUDY.md](../CASE_STUDY.md)): problem, architecture, **eval
+      numbers**, governance model, "what I'd build next."
+- [ ] 2–3 min demo GIF/video, embedded (needs a browser session — run `make web`).
 - [ ] Public-safety checklist pass ([public-safety.md](public-safety.md)).
 - [ ] Link from `nogor-design.github.io/portfolio-showcase` ([portfolio-integration.md](portfolio-integration.md)).
 
-**Done when:** DESIGN §13 Definition of Done is fully met.
+**Done when:** DESIGN §13 Definition of Done is fully met. *(Evals + case study landed
+2026-06-20; remaining: demo capture, safety-checklist sign-off, portfolio link.)*
 
 ---
 
