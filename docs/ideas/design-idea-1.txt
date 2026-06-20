@@ -1,0 +1,289 @@
+Absolutely — below is a detailed project brief and demo flow for Workflow MRI, tuned to the kind of “flagship” portfolio piece that proves you can turn messy business operations into a governed system. It leans into the idea that AI is increasingly valuable when it works inside real workflows, not just in chat.
+
+Project brief
+Working title: Workflow MRI
+Subtitle: Turn chaotic business inputs into a governed operating system.
+
+One-line pitch:
+Workflow MRI ingests messy operational artifacts — spreadsheets, PDFs, emails, screenshots, notes — then maps the workflow, exposes bottlenecks and risks, proposes automations, and exports a cleaner operating model with auditability built in.
+
+Why it matters:
+Most companies already have the raw material for better operations, but it is trapped across files and inboxes. This project shows that you can not only extract structure from chaos, but also design the controls, review points, and measurement layer needed to make it production-worthy. That maps well to the broader shift toward AI systems that are tool-using, workflow-native, and dependable rather than just conversational.
+
+Target audience:
+
+Hiring managers looking for AI software engineers.
+
+Founders or operators who want workflow automation.
+
+Enterprise/internal-tools teams that care about governance and auditability.
+
+What makes it stand out:
+
+It is not a toy chatbot.
+
+It demonstrates systems thinking, data modeling, process design, and AI governance.
+
+It produces tangible business artifacts, not just summaries.
+
+Core problem
+The project should frame the pain clearly:
+
+A fake company has process knowledge scattered across:
+
+Spreadsheets with inconsistent columns.
+
+PDF SOPs and forms.
+
+Email threads with approvals and exceptions.
+
+Screenshots of dashboards or tickets.
+
+Notes from employees and managers.
+
+The result is duplicated work, unclear ownership, missed handoffs, compliance risk, and no reliable way to estimate performance. Workflow MRI acts like an operations diagnostician: it converts fragments into a coherent map of how work actually happens.
+
+Product outcomes
+The app should generate these deliverables from one upload session:
+
+Live operations dashboard.
+
+Process map.
+
+Cleaned data model.
+
+Risk and privacy findings.
+
+Human review queues.
+
+Automation candidates.
+
+Before/after time savings estimate.
+
+Handoff package with tests, docs, and audit logs.
+
+The key is that each output supports a different stakeholder: operators, managers, engineers, and compliance-minded reviewers. That makes the demo feel real and commercially relevant.
+
+Scope and architecture
+A strong version of the product can be organized into five layers:
+
+Ingestion layer. Upload files or seed a sample company with fake artifacts.
+
+Extraction layer. Detect entities, dates, owners, steps, exceptions, and approvals.
+
+Process layer. Build a workflow graph and identify bottlenecks, loops, and duplicate work.
+
+Governance layer. Flag privacy issues, uncertain extractions, and anything needing human review.
+
+Output layer. Generate dashboards, exports, recommendations, and an audit trail.
+
+This gives the project enough depth to feel serious without becoming too large to finish.
+
+Demo flow
+Here is the recommended demo flow, optimized for impact.
+
+1) Landing view
+Show a polished homepage with a single prompt:
+“Upload your chaotic operations folder.”
+
+The user sees sample inputs:
+
+onboarding folder.
+
+vendor management folder.
+
+claims folder.
+
+customer support folder.
+
+Keep the language concrete so visitors instantly understand the use case.
+
+2) Upload and ingest
+The user uploads a mix of:
+
+CSV/XLSX spreadsheets.
+
+PDF docs.
+
+email exports.
+
+screenshots.
+
+notes.
+
+The app immediately displays:
+
+file count,
+
+detected document types,
+
+extraction confidence,
+
+items needing review.
+
+This first step should feel magical but believable.
+
+3) Workflow reconstruction
+The app reconstructs the process as a graph:
+
+intake,
+
+triage,
+
+review,
+
+approval,
+
+execution,
+
+exception handling,
+
+closure.
+
+Display:
+
+step sequence,
+
+handoff owners,
+
+cycle time,
+
+repeated loops,
+
+missing fields,
+
+duplicate handoffs.
+
+This is the heart of the “MRI” metaphor: it shows the hidden structure underneath the mess.
+
+4) Risk and quality scan
+Next, show a diagnostics panel with findings such as:
+
+PII in free-text fields.
+
+approvals missing evidence.
+
+inconsistent status labels.
+
+ambiguous ownership.
+
+tasks that bypass review.
+
+files with low-confidence extraction.
+
+This is where the project becomes more than workflow mapping. It becomes a governed system.
+
+5) Automation recommendations
+Now show prioritized automation opportunities:
+
+auto-route incoming requests,
+
+prefill structured forms,
+
+detect duplicate cases,
+
+create SLA alerts,
+
+generate summary notes,
+
+route exceptions to human review.
+
+Each recommendation should include:
+
+estimated time saved,
+
+confidence score,
+
+required human oversight,
+
+implementation complexity.
+
+That makes the output feel actionable rather than generic.
+
+6) Before/after simulation
+Show a simple comparison:
+
+before: fragmented process, unclear ownership, long turnaround times.
+
+after: structured intake, explicit handoffs, review queue, audit trail, reduced cycle time.
+
+A chart or metric panel works well here. Even a fake but plausible estimate is enough if it is clearly labeled as simulated.
+
+7) Exportable handoff
+End with an export screen:
+
+process map PDF.
+
+data schema JSON.
+
+review queue CSV.
+
+audit log.
+
+test cases.
+
+implementation backlog.
+
+This final step makes the project feel like a handoff to engineering, not just an analysis dashboard.
+
+UX details
+To make the demo memorable:
+
+Use a dark, enterprise-style UI with crisp status chips.
+
+Make the process map interactive and visually dominant.
+
+Include confidence indicators and “needs review” states.
+
+Keep one sample company preloaded so the demo always works.
+
+Add a “regen with safer mode” toggle to show governance awareness.
+
+The goal is to show that you can build a product that is both impressive and trustworthy.
+
+Suggested sections for the portfolio page
+Your project page should include:
+
+Problem.
+
+Why this matters.
+
+System architecture.
+
+Live demo.
+
+Representative outputs.
+
+Evaluation criteria.
+
+Governance and safety model.
+
+What I would build next.
+
+That structure makes it read like a serious case study, which is exactly what helps a flagship project land. The strongest portfolios usually make the work and the thinking legible, not just the visuals.
+
+Suggested copy
+Here is polished copy you can use or adapt:
+
+Workflow MRI is a public-safe demo that turns messy operational inputs into a governed operating system. It ingests spreadsheets, PDFs, emails, screenshots, and notes; reconstructs the workflow; identifies bottlenecks and duplicate work; extracts entities; flags risk; and generates a clean handoff package with audit logs, tests, and automation recommendations.
+
+Build order
+If you want this to be realistic and shippable, I would build it in this order:
+
+Sample company + seeded messy files.
+
+File ingestion and OCR/text extraction.
+
+Entity and step extraction.
+
+Workflow graph generation.
+
+Risk panel.
+
+Automation suggestions.
+
+Export package.
+
+Polished case-study page.
+
+That sequence keeps the first usable version focused on the core promise.

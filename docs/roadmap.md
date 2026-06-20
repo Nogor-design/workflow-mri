@@ -1,0 +1,106 @@
+# Roadmap
+
+Companion to [`../DESIGN.md`](../DESIGN.md) §12. Sequenced so the **interview-winning
+screenshot** (interactive before/after process graph) exists as early as possible —
+decoupled from, and ahead of, the deep engine work.
+
+Each phase ends in a **demoable or verifiable** state. Don't start a phase before the
+previous one's "done" check passes.
+
+---
+
+## Phase 0 — Foundation *(this scaffold)*
+
+**Goal:** a real repo with the contract and structure in place.
+
+- [x] Repo skeleton, git init, idea docs archived to `docs/ideas/`.
+- [x] Design docs (`DESIGN.md` + `docs/`).
+- [ ] `engine/pyproject.toml`, package stubs, `Makefile` targets.
+- [ ] `web/` Vite + React + TypeScript app scaffold (empty shell that builds & deploys).
+- [ ] Pydantic schema stubs for the Bundle objects (no logic yet).
+- [ ] CI: build the static web app; deploy to GitHub Pages on push to `main`.
+
+**Done when:** an empty styled SPA deploys to a GitHub Pages URL and the repo reads like a
+serious project at first glance.
+
+---
+
+## Phase 1 — Golden Bundle + full UI *(the flagship screenshot)*
+
+**Goal:** the complete narrative renders end-to-end from a **hand-authored** Bundle, before
+the engine can generate one. This front-loads the visual payoff and de-risks the contract.
+
+- [ ] Hand-author a realistic `web/public/bundle/` for Meridian Claims (all object types).
+- [ ] Build all 8 views (DESIGN §9), centerpiece first: **Process Graph** (React Flow,
+      swimlanes, bottleneck heatmap, clickable evidence drawer).
+- [ ] Before/After view + Risk panel + Automations cards.
+- [ ] Dark enterprise theme, status/confidence chips, "needs review" states, safe-mode toggle.
+- [ ] Export & Handoff view (downloads wired to bundled `exports/`).
+
+**Done when:** a reviewer can click through the entire Meridian story and it looks like a
+finished product. **Capture the flagship screenshot/GIF here.**
+
+---
+
+## Phase 2 — Real engine (ingest → extract → graph)
+
+**Goal:** `make bundle` regenerates the Meridian Bundle from `samples/` for real.
+
+- [ ] Author the fictional `samples/meridian-claims/` inputs (messy on purpose).
+- [ ] `llm/` — `LLMClient` protocol + Ollama (default) + Claude clients; config/env switch.
+- [ ] Ingestion: file detection, text/OCR extraction → `Artifact`/`Document`.
+- [ ] Extraction: LLM + rules → `Entity`/`WorkflowStep` with confidence; constrained/validated output.
+- [ ] Graph builder: `ProcessEdge`s + bottleneck/loop/duplicate diagnostics (deterministic).
+- [ ] `export/` assembles a schema-valid Bundle; reconcile against the Phase-1 golden Bundle.
+
+**Done when:** the generated Bundle renders in the existing UI with no UI changes, and
+matches the golden Bundle's shape.
+
+---
+
+## Phase 3 — Governance + recommendations + simulation
+
+**Goal:** the parts that make it memorable rather than just a graph.
+
+- [ ] Risk engine: rules + LLM → `RiskFinding`s (PII, missing approvals, inconsistent
+      status, ambiguous ownership, review-bypass, low-confidence) with evidence links.
+- [ ] Review queue: `ReviewTask`s + approve/override/reject state in the audit log.
+- [ ] Automation recommender: value × effort × oversight scoring → ranked `AutomationCandidate`s.
+- [ ] Simulation: deterministic before/after cycle-time & cost over the graph (labeled simulated).
+- [ ] LangGraph agent wiring with a critic/review pass; emit `AuditEvent`s for every decision.
+
+**Done when:** the full Bundle is engine-generated end-to-end and governance objects are real.
+
+---
+
+## Phase 4 — Evals, polish, publish
+
+**Goal:** prove it works and make it land.
+
+- [ ] `evals/` synthetic ground truth → extraction accuracy, risk recall, hallucination rate.
+- [ ] Case-study page: problem, architecture diagram, **eval numbers**, governance model,
+      "what I'd build next."
+- [ ] 2–3 min demo GIF/video, embedded.
+- [ ] Public-safety checklist pass ([public-safety.md](public-safety.md)).
+- [ ] Link from `nogor-design.github.io/portfolio-showcase` ([portfolio-integration.md](portfolio-integration.md)).
+
+**Done when:** DESIGN §13 Definition of Done is fully met.
+
+---
+
+## Sequencing rationale
+
+- **UI before engine (Phase 1 before 2)** is deliberate: the portfolio value is the visible
+  artifact, and a hand-authored Bundle locks the contract and surfaces UI needs before
+  expensive engine work. It also means you *always* have a working demo to show.
+- **Governance after the happy path (Phase 3)** but **never cut**: if time runs short, ship
+  Phases 0–2 + a partial Phase 3, but keep risk findings + review queue — they are the
+  differentiator.
+- **Evals last but mandatory (Phase 4):** the numbers are what separate this from a polished
+  toy on the case-study page.
+
+## Effort note
+
+The original idea docs framed this as a 4-week plan. That maps cleanly onto Phases 1–4
+(~one week each) with Phase 0 as a setup day. Adjust to actual availability; the phase
+gates matter more than the calendar.

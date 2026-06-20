@@ -1,0 +1,33 @@
+I’d be blunt: the portfolio already has plenty of “I build dashboards, trading tools, local AI, and workflow apps.” What it does not yet have is one clean flagship that screams:
+“Give this person an ugly business process and they will turn it into a governed, measurable operating system.”
+
+I checked the current portfolio, the local inventory, and the public GitHub account. The public site is strong, but the GitHub account still reads like a collection of useful systems and experiments, not yet like a single unforgettable AI Software Engineer flagship. The best new project should be bigger than “another app.”
+My Top Pick
+Build a project called something like Workflow MRI or Ops Autopsy Lab.
+It would be a public-safe demo where a fake chaotic company starts with messy spreadsheets, PDFs, emails, screenshots, and notes. The app ingests all of it, maps the workflow, finds bottlenecks, identifies duplicate work, extracts entities, proposes automations, and generates:
+A live operations dashboard
+A process map
+A cleaned data model
+Risk/privacy findings
+Human review queues
+Automation candidates
+Before/after time savings estimate
+A handoff package with tests, docs, and audit logs
+That would stand out because it proves the exact claim: “I turn messy workflows into productive systems.”
+Other Standout Project Ideas
+Spreadsheet-To-Software Compiler
+Upload messy Excel/CSV/PDF exports and the system generates a typed schema, validation rules, import preview, admin dashboard, API endpoints, and test suite. This would be extremely hireable because almost every company has this pain.
+
+AI Operations Control Tower
+A governance layer for small businesses using AI internally: prompt/version tracking, PII redaction, approvals, eval scores, hallucination checks, evidence links, and audit logs. This says “I can make AI safe enough for real operations.”
+
+Inbox-To-Workflow Engine
+Fake customer emails, attachments, forms, and voicemails become structured tickets, routed tasks, follow-ups, SLA warnings, and manager dashboards. This would be more broadly relatable than trading and more commercial than a pure AI demo.
+
+Broken Business Rescue Simulator
+A playable before/after case study: the user enters a chaotic business scenario, then watches the system diagnose the process, propose tools, prioritize fixes, and simulate operational improvement. This would be memorable and portfolio-native.
+
+AI Migration Assistant For Legacy Workflows
+A tool that takes old SOPs, Excel sheets, Access-style tables, and screenshots, then produces a modernization plan, database model, app wireframe, and implementation backlog. This would appeal to enterprise/internal-tool hiring managers.
+
+If you only build one, build Workflow MRI. Make it polished, public, demoable, and non-trading-specific. Your current portfolio proves range; this would prove the central promise in one unforgettable artifact.
