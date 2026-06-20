@@ -14,6 +14,9 @@ simulation, Safe Mode redaction, and export handoff view. The engine remains in
 Phase 0/2 scaffold state; `make bundle` is still the next implementation milestone.
 See [`DESIGN.md`](DESIGN.md) and [`docs/roadmap.md`](docs/roadmap.md).
 
+Public demo:
+`https://nogor-design.github.io/portfolio-showcase/demos/workflow-mri/`
+
 ## How it's built
 
 Two artifacts joined by one contract:

@@ -18,7 +18,9 @@ visual impact**.
 ## Where it lives
 
 - **Code:** its own public GitHub repo (`workflow-mri`), pinned on the `Nogor-design` profile.
-- **Live demo:** GitHub Pages static deploy of `web/` (e.g. `nogor-design.github.io/workflow-mri`).
+- **Live demo:** portfolio-hosted static deploy at
+  `https://nogor-design.github.io/portfolio-showcase/demos/workflow-mri/`.
+  Standalone `nogor-design.github.io/workflow-mri` can be enabled later from the repo's Pages settings.
 - **Portfolio card:** a new top entry on the showcase site linking to the live demo, the
   repo, and the case-study page.
 

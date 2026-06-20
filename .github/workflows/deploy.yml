@@ -1,4 +1,4 @@
-name: Deploy showcase to GitHub Pages
+name: Validate showcase build
 
 # Builds the static web/ SPA and publishes it. The public demo is a deterministic renderer
 # of the committed Artifact Bundle — no secrets, no inference (see docs/public-safety.md).
@@ -13,11 +13,9 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: validate-showcase
   cancel-in-progress: true
 
 jobs:
@@ -34,19 +32,7 @@ jobs:
           cache: npm
           cache-dependency-path: web/package-lock.json
       - run: npm ci
+      - run: npm test
       - run: npm run build
         env:
-          VITE_BASE: /workflow-mri/
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: web/dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          VITE_BASE: ./
