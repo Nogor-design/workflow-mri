@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Bundle } from "./bundle/types";
 import { loadBundle } from "./bundle/load";
+import { Landing } from "./views/Landing";
 import { ProcessGraph } from "./views/ProcessGraph";
 import { Ingest } from "./views/Ingest";
 import { RiskPanel } from "./views/RiskPanel";
@@ -20,7 +21,9 @@ const NAV = [
 export function App() {
   const [bundle, setBundle] = useState<Bundle | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [entered, setEntered] = useState(false);
   const [active, setActive] = useState("graph");
+  const [safeMode, setSafeMode] = useState(true);
 
   useEffect(() => {
     loadBundle().then(setBundle).catch((e) => setError(String(e)));
@@ -29,18 +32,32 @@ export function App() {
   if (error) return <Centered>Failed to load bundle: {error}</Centered>;
   if (!bundle) return <Centered>Loading Workflow MRI…</Centered>;
 
+  if (!entered) {
+    return <Landing bundle={bundle} onEnter={(view) => { setActive(view ?? "graph"); setEntered(true); }} />;
+  }
+
   const co = bundle.manifest.company;
 
   return (
     <div className="app">
       <header className="topbar">
-        <div className="brand">
+        <button className="brand brand-btn" onClick={() => setEntered(false)} title="Back to overview">
           <span className="brand-mark" aria-hidden>◐</span>
           <span className="brand-name">Workflow&nbsp;MRI</span>
-        </div>
-        <div className="topbar-co">
-          <span className="co-name">{co.name}</span>
-          {co.fictional && <span className="fictional">FICTIONAL</span>}
+        </button>
+        <div className="topbar-right">
+          <button
+            className={`safe-toggle${safeMode ? " on" : ""}`}
+            onClick={() => setSafeMode((s) => !s)}
+            title="When on, detected PII is redacted from evidence — a governance control."
+          >
+            <span className="safe-dot" />
+            Safe mode {safeMode ? "ON" : "OFF"}
+          </button>
+          <div className="topbar-co">
+            <span className="co-name">{co.name}</span>
+            {co.fictional && <span className="fictional">FICTIONAL</span>}
+          </div>
         </div>
       </header>
 
@@ -64,8 +81,8 @@ export function App() {
 
         <main className="content">
           {active === "ingest" && <Ingest bundle={bundle} />}
-          {active === "graph" && <ProcessGraph bundle={bundle} />}
-          {active === "risk" && <RiskPanel bundle={bundle} />}
+          {active === "graph" && <ProcessGraph bundle={bundle} safeMode={safeMode} />}
+          {active === "risk" && <RiskPanel bundle={bundle} safeMode={safeMode} />}
           {active === "automations" && <Automations bundle={bundle} />}
           {active === "beforeafter" && <BeforeAfter bundle={bundle} />}
           {active === "export" && <ExportView bundle={bundle} />}

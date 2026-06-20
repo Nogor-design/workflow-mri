@@ -36,8 +36,11 @@ the engine can generate one. This front-loads the visual payoff and de-risks the
 - [x] Before/After view + Risk panel + Automations cards + Ingest view.
 - [x] Dark enterprise theme, status/confidence chips, "needs review" states.
 - [x] Export & Handoff view (download buttons present; wired to real files in Phase 2).
-- [ ] Polish pass: landing/hero entry, safe-mode toggle, animated before/after morph.
-- [ ] Capture the flagship screenshot/GIF.
+- [x] Polish pass: landing/hero entry with auto-cycling before/after teaser; safe-mode
+      toggle (real PII redaction of evidence); animated before→after graph morph (segmented
+      control on the Process Graph).
+- [ ] Capture the flagship screenshot/GIF (needs a browser session — extension not connected
+      in this environment; run `npm run dev` and capture manually).
 
 **Done when:** a reviewer can click through the entire Meridian story and it looks like a
 finished product. **Capture the flagship screenshot/GIF here.**

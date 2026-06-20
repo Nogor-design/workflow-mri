@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Bundle, RiskCategory, Severity } from "../bundle/types";
+import { maskQuote } from "../bundle/redact";
 
 const CAT_LABEL: Record<RiskCategory, string> = {
   pii: "PII exposure",
@@ -12,7 +13,7 @@ const CAT_LABEL: Record<RiskCategory, string> = {
 
 const SEV_RANK: Record<Severity, number> = { high: 0, med: 1, low: 2 };
 
-export function RiskPanel({ bundle }: { bundle: Bundle }) {
+export function RiskPanel({ bundle, safeMode }: { bundle: Bundle; safeMode: boolean }) {
   const [open, setOpen] = useState<string | null>(null);
   const risks = [...bundle.risks].sort((a, b) => SEV_RANK[a.severity] - SEV_RANK[b.severity]);
   const stepName = (id?: string) => bundle.steps.find((s) => s.id === id)?.name;
@@ -42,12 +43,15 @@ export function RiskPanel({ bundle }: { bundle: Bundle }) {
                   {r.suggested_action && (
                     <p className="risk-action">→ {r.suggested_action}</p>
                   )}
-                  {r.evidence.map((ev, i) => (
-                    <div key={i} className="evidence-row">
-                      <code>{ev.artifact_id}{ev.page ? ` p${ev.page}` : ""}{ev.line ? ` L${ev.line}` : ""}{ev.cell ? ` ${ev.cell}` : ""}</code>
-                      {ev.quote && <span className="quote">“{ev.quote}”</span>}
-                    </div>
-                  ))}
+                  {r.evidence.map((ev, i) => {
+                    const redact = safeMode && r.category === "pii";
+                    return (
+                      <div key={i} className="evidence-row">
+                        <code>{ev.artifact_id}{ev.page ? ` p${ev.page}` : ""}{ev.line ? ` L${ev.line}` : ""}{ev.cell ? ` ${ev.cell}` : ""}</code>
+                        {ev.quote && <span className={`quote${redact ? " redacted" : ""}`}>“{maskQuote(ev.quote, redact)}”</span>}
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>
