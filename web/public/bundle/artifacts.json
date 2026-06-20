@@ -1,0 +1,12 @@
+[
+  { "id": "art_001", "kind": "xlsx", "source_name": "ClaimsLog_2026_Q1.xlsx", "detected_type": "claim register", "ingested_at": "2026-06-20T08:00:01-06:00", "page_count": 1, "extraction_confidence": 0.91 },
+  { "id": "art_002", "kind": "xlsx", "source_name": "claims_master_v3_FINAL.xlsx", "detected_type": "claim register", "ingested_at": "2026-06-20T08:00:02-06:00", "page_count": 1, "extraction_confidence": 0.74 },
+  { "id": "art_003", "kind": "csv", "source_name": "payments_export.csv", "detected_type": "payment ledger", "ingested_at": "2026-06-20T08:00:03-06:00", "page_count": 1, "extraction_confidence": 0.88 },
+  { "id": "art_004", "kind": "pdf", "source_name": "Claims_SOP_2023.pdf", "detected_type": "standard operating procedure", "ingested_at": "2026-06-20T08:00:04-06:00", "page_count": 12, "extraction_confidence": 0.82 },
+  { "id": "art_005", "kind": "pdf", "source_name": "Claim_Intake_Form.pdf", "detected_type": "form template", "ingested_at": "2026-06-20T08:00:05-06:00", "page_count": 2, "extraction_confidence": 0.9 },
+  { "id": "art_006", "kind": "email", "source_name": "RE_ approval needed - claim 4471.eml", "detected_type": "approval thread", "ingested_at": "2026-06-20T08:00:06-06:00", "page_count": 1, "extraction_confidence": 0.79 },
+  { "id": "art_007", "kind": "email", "source_name": "FW_ exception - duplicate payment.eml", "detected_type": "exception thread", "ingested_at": "2026-06-20T08:00:07-06:00", "page_count": 1, "extraction_confidence": 0.71 },
+  { "id": "art_008", "kind": "screenshot", "source_name": "dashboard_open_claims.png", "detected_type": "dashboard screenshot", "ingested_at": "2026-06-20T08:00:08-06:00", "page_count": 1, "extraction_confidence": 0.58 },
+  { "id": "art_009", "kind": "note", "source_name": "adjuster_notes_week12.txt", "detected_type": "employee notes", "ingested_at": "2026-06-20T08:00:09-06:00", "page_count": 1, "extraction_confidence": 0.64 },
+  { "id": "art_010", "kind": "note", "source_name": "manager_handoff_notes.txt", "detected_type": "manager notes", "ingested_at": "2026-06-20T08:00:10-06:00", "page_count": 1, "extraction_confidence": 0.62 }
+]

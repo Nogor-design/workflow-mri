@@ -1,0 +1,11 @@
+[
+  { "id": "e1", "from_step": "step_intake", "to_step": "step_triage", "kind": "normal", "frequency": 1.0, "avg_delay_hours": 2, "evidence": [] },
+  { "id": "e2", "from_step": "step_triage", "to_step": "step_review", "kind": "normal", "frequency": 0.85, "avg_delay_hours": 5, "evidence": [] },
+  { "id": "e3", "from_step": "step_review", "to_step": "step_approval", "kind": "normal", "frequency": 0.9, "avg_delay_hours": 9, "evidence": [] },
+  { "id": "e4", "from_step": "step_approval", "to_step": "step_payment", "kind": "normal", "frequency": 0.95, "avg_delay_hours": 12, "evidence": [{ "artifact_id": "art_006", "quote": "approval delays cascade to payment" }] },
+  { "id": "e5", "from_step": "step_payment", "to_step": "step_closure", "kind": "normal", "frequency": 0.97, "avg_delay_hours": 3, "evidence": [] },
+  { "id": "e6", "from_step": "step_review", "to_step": "step_exception", "kind": "exception", "frequency": 0.18, "avg_delay_hours": 6, "evidence": [{ "artifact_id": "art_007", "quote": "FW: exception - duplicate payment" }] },
+  { "id": "e7", "from_step": "step_exception", "to_step": "step_review", "kind": "loop", "frequency": 0.15, "avg_delay_hours": 8, "evidence": [{ "artifact_id": "art_009", "line": 22, "quote": "kicked back to review again, 2nd time this month" }] },
+  { "id": "e8", "from_step": "step_triage", "to_step": "step_review", "kind": "duplicate", "frequency": 0.12, "avg_delay_hours": 7, "evidence": [{ "artifact_id": "art_002", "quote": "two specialists assigned same claim batch" }] },
+  { "id": "e9", "from_step": "step_intake", "to_step": "step_approval", "kind": "bypass", "frequency": 0.08, "avg_delay_hours": 1, "evidence": [{ "artifact_id": "art_010", "quote": "fast-tracked small claims straight to manager, skipped review" }] }
+]

@@ -30,15 +30,20 @@ serious project at first glance.
 **Goal:** the complete narrative renders end-to-end from a **hand-authored** Bundle, before
 the engine can generate one. This front-loads the visual payoff and de-risks the contract.
 
-- [ ] Hand-author a realistic `web/public/bundle/` for Meridian Claims (all object types).
-- [ ] Build all 8 views (DESIGN §9), centerpiece first: **Process Graph** (React Flow,
-      swimlanes, bottleneck heatmap, clickable evidence drawer).
-- [ ] Before/After view + Risk panel + Automations cards.
-- [ ] Dark enterprise theme, status/confidence chips, "needs review" states, safe-mode toggle.
-- [ ] Export & Handoff view (downloads wired to bundled `exports/`).
+- [x] Hand-author a realistic `web/public/bundle/` for Meridian Claims (all object types).
+- [x] Build the core views (DESIGN §9), centerpiece first: **Process Graph** (custom SVG
+      swimlanes, bottleneck glow, edge-kind styling, clickable evidence panel).
+- [x] Before/After view + Risk panel + Automations cards + Ingest view.
+- [x] Dark enterprise theme, status/confidence chips, "needs review" states.
+- [x] Export & Handoff view (download buttons present; wired to real files in Phase 2).
+- [ ] Polish pass: landing/hero entry, safe-mode toggle, animated before/after morph.
+- [ ] Capture the flagship screenshot/GIF.
 
 **Done when:** a reviewer can click through the entire Meridian story and it looks like a
 finished product. **Capture the flagship screenshot/GIF here.**
+
+> Core views land 2026-06-20; build is green (`npm run build`). Remaining: hero/landing
+> entry, safe-mode toggle, morph animation, and the screenshot.
 
 ---
 

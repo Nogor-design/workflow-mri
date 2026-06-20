@@ -1,0 +1,6 @@
+[
+  { "id": "rev_001", "reason": "PII (SSN) detected in adjuster notes — confirm redaction", "related_id": "risk_pii_001", "status": "open", "required_role": "Compliance", "created_at": "2026-06-20T08:01:00-06:00" },
+  { "id": "rev_002", "reason": "Approved claim missing sign-off evidence", "related_id": "risk_appr_003", "status": "open", "required_role": "Claims Manager", "created_at": "2026-06-20T08:01:05-06:00" },
+  { "id": "rev_003", "reason": "Review-bypass control gap — confirm fast-track policy", "related_id": "risk_bypass_004", "status": "open", "required_role": "Compliance", "created_at": "2026-06-20T08:01:10-06:00" },
+  { "id": "rev_004", "reason": "Low-confidence screenshot extraction — verify counts", "related_id": "risk_lowconf_008", "status": "open", "required_role": "Adjuster", "created_at": "2026-06-20T08:01:15-06:00" }
+]

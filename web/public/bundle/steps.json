@@ -1,0 +1,44 @@
+[
+  {
+    "id": "step_intake", "name": "Claim Intake", "owner_role": "Intake Clerk", "sequence_index": 0,
+    "cycle_time_hours": 4, "inputs": ["claimant submission"], "outputs": ["claim record"],
+    "is_review": false, "is_approval": false, "confidence": 0.93,
+    "evidence": [{ "artifact_id": "art_005", "page": 1, "quote": "Intake form fields: claimant, policy #, loss date" }]
+  },
+  {
+    "id": "step_triage", "name": "Triage & Assignment", "owner_role": "Triage Specialist", "sequence_index": 1,
+    "cycle_time_hours": 6, "inputs": ["claim record"], "outputs": ["assigned claim"],
+    "is_review": false, "is_approval": false, "confidence": 0.81,
+    "evidence": [{ "artifact_id": "art_004", "page": 3, "quote": "Triage routes claims by severity tier" }]
+  },
+  {
+    "id": "step_review", "name": "Document Review", "owner_role": "Adjuster", "sequence_index": 2,
+    "cycle_time_hours": 14, "inputs": ["assigned claim", "supporting docs"], "outputs": ["reviewed claim"],
+    "is_review": true, "is_approval": false, "confidence": 0.86,
+    "evidence": [{ "artifact_id": "art_009", "line": 12, "quote": "adjuster verifies coverage + damages" }]
+  },
+  {
+    "id": "step_approval", "name": "Manager Approval", "owner_role": "Claims Manager", "sequence_index": 3,
+    "cycle_time_hours": 38, "inputs": ["reviewed claim"], "outputs": ["approved claim"],
+    "is_review": false, "is_approval": true, "is_bottleneck": true, "confidence": 0.77,
+    "evidence": [{ "artifact_id": "art_006", "quote": "still waiting on manager sign-off, 3rd day" }]
+  },
+  {
+    "id": "step_payment", "name": "Payment", "owner_role": "Finance", "sequence_index": 4,
+    "cycle_time_hours": 10, "inputs": ["approved claim"], "outputs": ["disbursement"],
+    "is_review": false, "is_approval": false, "confidence": 0.88,
+    "evidence": [{ "artifact_id": "art_003", "cell": "F12", "quote": "payment posted 2 days after approval" }]
+  },
+  {
+    "id": "step_exception", "name": "Exception Handling", "owner_role": "Adjuster", "sequence_index": 5,
+    "cycle_time_hours": 16, "inputs": ["flagged claim"], "outputs": ["resolved exception"],
+    "is_review": false, "is_approval": false, "confidence": 0.69,
+    "evidence": [{ "artifact_id": "art_007", "quote": "duplicate payment caught, routed back to review" }]
+  },
+  {
+    "id": "step_closure", "name": "Closure", "owner_role": "Intake Clerk", "sequence_index": 6,
+    "cycle_time_hours": 3, "inputs": ["disbursement"], "outputs": ["closed claim"],
+    "is_review": false, "is_approval": false, "confidence": 0.9,
+    "evidence": [{ "artifact_id": "art_001", "cell": "M2", "quote": "status set to CLOSED" }]
+  }
+]

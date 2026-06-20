@@ -1,0 +1,7 @@
+[
+  { "id": "exp_map", "label": "Process Map", "kind": "pdf", "path_in_bundle": "exports/process-map.pdf", "description": "Swimlane diagram of the reconstructed workflow." },
+  { "id": "exp_schema", "label": "Cleaned Data Schema", "kind": "json", "path_in_bundle": "exports/schema.json", "description": "Typed entities + validation rules inferred from the artifacts." },
+  { "id": "exp_reviews", "label": "Review Queue", "kind": "csv", "path_in_bundle": "exports/review-queue.csv", "description": "Items requiring human review, with reasons and required roles." },
+  { "id": "exp_audit", "label": "Audit Log", "kind": "json", "path_in_bundle": "exports/audit.json", "description": "Decision/override/inference trail for the run." },
+  { "id": "exp_backlog", "label": "Implementation Backlog", "kind": "md", "path_in_bundle": "exports/backlog.md", "description": "Prioritized automation work items for an engineering team." }
+]

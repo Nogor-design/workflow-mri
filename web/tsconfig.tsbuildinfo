@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/main.tsx"],"version":"5.9.3"}
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/bundle/load.ts","./src/bundle/types.ts","./src/graph/layout.ts","./src/views/automations.tsx","./src/views/beforeafter.tsx","./src/views/exportview.tsx","./src/views/ingest.tsx","./src/views/processgraph.tsx","./src/views/riskpanel.tsx"],"version":"5.9.3"}

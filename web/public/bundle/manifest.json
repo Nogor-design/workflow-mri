@@ -1,0 +1,19 @@
+{
+  "bundle_version": "1.0",
+  "run_id": "meridian-2026-06-20",
+  "company": {
+    "name": "Meridian Claims Co.",
+    "fictional": true,
+    "domain": "insurance-claims"
+  },
+  "generated_at": "2026-06-20T08:00:00-06:00",
+  "engine": {
+    "llm_backend": "ollama",
+    "model": "llama3.1:8b",
+    "prompt_set": "v1",
+    "temperature": 0
+  },
+  "counts": { "artifacts": 23, "steps": 7, "edges": 9, "risks": 11, "automations": 6, "reviews": 4 },
+  "safe_mode": true,
+  "hashes": {}
+}

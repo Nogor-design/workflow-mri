@@ -70,8 +70,12 @@ The pipeline must produce a stable Bundle for a fixed sample + fixed model confi
 `web/` is a React + Vite SPA. It loads the Bundle from `web/public/bundle/` at startup into
 a typed store and renders the views in DESIGN §9. Key choices:
 
-- **React Flow** for the process graph (swimlanes, heatmap overlay, clickable nodes →
-  evidence drawer).
+- **Custom SVG swimlane graph** for the process map (deterministic layout in
+  `src/graph/layout.ts`; lanes = owner roles, columns = sequence index; edges styled by
+  kind: normal / duplicate / exception / loop / bypass). Chosen over React Flow for full
+  control of the distinctive look, zero heavy dependency, and exact determinism. (DESIGN
+  originally named React Flow as the means; the end — an interactive, clickable graph — is
+  what matters, and the custom renderer delivers it with a more bespoke visual.)
 - TypeScript types are generated from the Pydantic schema, so the UI cannot drift from the
   contract.
 - Routing is hash-based or static-export-safe so it works under a GitHub Pages subpath.
