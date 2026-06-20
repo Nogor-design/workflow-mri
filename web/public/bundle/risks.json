@@ -1,13 +1,170 @@
 [
-  { "id": "risk_pii_001", "category": "pii", "severity": "high", "title": "SSN in free-text adjuster notes", "description": "Claimant Social Security numbers appear in plain text inside unstructured adjuster notes, outside any access-controlled field.", "step_id": "step_review", "confidence": 0.94, "suggested_action": "Mask/relocate PII to a controlled field; redact from notes.", "evidence": [{ "artifact_id": "art_009", "line": 7, "quote": "claimant SSN on file ***-**-**** (redacted)" }] },
-  { "id": "risk_pii_002", "category": "pii", "severity": "med", "title": "Full DOB + address in email thread", "description": "An approval email thread contains the claimant's date of birth and home address forwarded to multiple recipients.", "step_id": "step_approval", "confidence": 0.83, "suggested_action": "Restrict thread recipients; strip PII from forwards.", "evidence": [{ "artifact_id": "art_006", "quote": "DOB and address included for verification" }] },
-  { "id": "risk_appr_003", "category": "missing_approval", "severity": "high", "title": "Approvals recorded without evidence", "description": "12% of approved claims have no attached manager sign-off artifact — approval is asserted but not evidenced.", "step_id": "step_approval", "confidence": 0.88, "suggested_action": "Require an artifact reference before status can move to APPROVED.", "evidence": [{ "artifact_id": "art_001", "cell": "K34", "quote": "status APPROVED, approver column blank" }] },
-  { "id": "risk_bypass_004", "category": "review_bypass", "severity": "high", "title": "Claims skip Document Review", "description": "Small claims are fast-tracked from intake straight to manager approval, bypassing the Document Review control entirely.", "step_id": "step_review", "confidence": 0.86, "suggested_action": "Route all claims through review; add a documented fast-track exception with its own control.", "evidence": [{ "artifact_id": "art_010", "quote": "skipped review for small claims" }] },
-  { "id": "risk_status_005", "category": "inconsistent_status", "severity": "med", "title": "Conflicting status vocabularies", "description": "Two claim registers use different status labels for the same state ('Paid' vs 'Closed-Disbursed'), breaking reconciliation.", "confidence": 0.8, "suggested_action": "Adopt a single canonical status enum across registers.", "evidence": [{ "artifact_id": "art_002", "quote": "status: Closed-Disbursed" }, { "artifact_id": "art_001", "quote": "status: Paid" }] },
-  { "id": "risk_owner_006", "category": "ambiguous_ownership", "severity": "med", "title": "Triage ownership unclear", "description": "Two triage specialists were assigned overlapping claim batches, creating duplicate handoffs and unclear accountability.", "step_id": "step_triage", "confidence": 0.78, "suggested_action": "Assign a single owner per claim at triage with a tie-break rule.", "evidence": [{ "artifact_id": "art_002", "quote": "two specialists assigned same claim batch" }] },
-  { "id": "risk_dup_007", "category": "inconsistent_status", "severity": "high", "title": "Duplicate payment risk", "description": "A duplicate payment reached the exception queue; controls did not catch it before disbursement.", "step_id": "step_payment", "confidence": 0.84, "suggested_action": "Add a pre-disbursement duplicate-claim check.", "evidence": [{ "artifact_id": "art_007", "quote": "duplicate payment caught after the fact" }] },
-  { "id": "risk_lowconf_008", "category": "low_confidence", "severity": "low", "title": "Low-confidence extraction from dashboard screenshot", "description": "Open-claims counts were read from a screenshot at 58% confidence; numbers should be confirmed against source.", "confidence": 0.58, "suggested_action": "Pull counts from the source system rather than a screenshot.", "evidence": [{ "artifact_id": "art_008", "quote": "OCR of dashboard tile" }] },
-  { "id": "risk_appr_009", "category": "missing_approval", "severity": "med", "title": "Bypassed claims lack any approval record", "description": "Fast-tracked claims that skipped review also lack a formal approval artifact.", "step_id": "step_approval", "confidence": 0.75, "suggested_action": "Block disbursement until an approval artifact exists.", "evidence": [{ "artifact_id": "art_010", "quote": "no sign-off attached" }] },
-  { "id": "risk_status_010", "category": "inconsistent_status", "severity": "low", "title": "Free-text status in notes", "description": "Adjusters record ad-hoc statuses in notes ('basically done') that don't map to any system state.", "step_id": "step_review", "confidence": 0.66, "suggested_action": "Constrain status entry to the canonical enum.", "evidence": [{ "artifact_id": "art_009", "line": 18, "quote": "basically done, waiting on manager" }] },
-  { "id": "risk_owner_011", "category": "ambiguous_ownership", "severity": "low", "title": "Exception owner undefined", "description": "Exception handling has no named owner; it is picked up ad-hoc by whichever adjuster is free.", "step_id": "step_exception", "confidence": 0.7, "suggested_action": "Designate an exception owner / rotation.", "evidence": [{ "artifact_id": "art_010", "quote": "whoever has time grabs the exceptions" }] }
+  {
+    "id": "risk_pii_001",
+    "category": "pii",
+    "severity": "high",
+    "title": "PII in approval thread",
+    "description": "Claimant identifiers (SSN/DOB/address) appear in free text outside any access-controlled field.",
+    "step_id": "step_review",
+    "entity_id": null,
+    "confidence": 0.94,
+    "suggested_action": "Mask/relocate PII to a controlled field; redact from free text.",
+    "evidence": [
+      {
+        "artifact_id": "art_001",
+        "document_id": null,
+        "page": null,
+        "cell": null,
+        "line": null,
+        "quote": "ready to disburse the moment you approve. For verification: claimant DOB 1979-03-04,"
+      }
+    ]
+  },
+  {
+    "id": "risk_pii_002",
+    "category": "pii",
+    "severity": "high",
+    "title": "PII in employee notes",
+    "description": "Claimant identifiers (SSN/DOB/address) appear in free text outside any access-controlled field.",
+    "step_id": "step_review",
+    "entity_id": null,
+    "confidence": 0.94,
+    "suggested_action": "Mask/relocate PII to a controlled field; redact from free text.",
+    "evidence": [
+      {
+        "artifact_id": "art_002",
+        "document_id": null,
+        "page": null,
+        "cell": null,
+        "line": null,
+        "quote": "CLM-4403: claimant called twice. SSN 412-55-9981 on file, DOB 1979-03-04. flagged for fraud review."
+      }
+    ]
+  },
+  {
+    "id": "risk_pii_003",
+    "category": "pii",
+    "severity": "high",
+    "title": "PII in event-log notes",
+    "description": "Synthetic SSN/DOB recorded in the claim event log's free-text notes column.",
+    "step_id": "step_review",
+    "entity_id": null,
+    "confidence": 0.92,
+    "suggested_action": "Drop PII from operational logs; capture identifiers only in the secured record.",
+    "evidence": [
+      {
+        "artifact_id": "art_005",
+        "document_id": null,
+        "page": null,
+        "cell": null,
+        "line": null,
+        "quote": "claimant SSN 412-55-9981 on file; DOB 1979-03-04 verified"
+      }
+    ]
+  },
+  {
+    "id": "risk_appr_004",
+    "category": "missing_approval",
+    "severity": "high",
+    "title": "Approvals recorded without sign-off evidence",
+    "description": "2 approval event(s) have no approver/sign-off attached — approval is asserted but not evidenced.",
+    "step_id": "step_approval",
+    "entity_id": null,
+    "confidence": 0.88,
+    "suggested_action": "Require a sign-off artifact before status can move to Approved.",
+    "evidence": [
+      {
+        "artifact_id": "art_005",
+        "document_id": null,
+        "page": null,
+        "cell": null,
+        "line": null,
+        "quote": "CLM-4404: approver column blank"
+      }
+    ]
+  },
+  {
+    "id": "risk_bypass_005",
+    "category": "review_bypass",
+    "severity": "high",
+    "title": "Claims skip Document Review",
+    "description": "A directly-follows path jumps from intake to approval, bypassing the mandatory Document Review control.",
+    "step_id": "step_review",
+    "entity_id": null,
+    "confidence": 0.86,
+    "suggested_action": "Route all claims through review; log fast-tracks as explicit, controlled exceptions.",
+    "evidence": [
+      {
+        "artifact_id": "art_005",
+        "document_id": null,
+        "page": null,
+        "cell": null,
+        "line": null,
+        "quote": "intake→approval ×1 cases"
+      }
+    ]
+  },
+  {
+    "id": "risk_owner_006",
+    "category": "ambiguous_ownership",
+    "severity": "med",
+    "title": "Ambiguous ownership at Triage",
+    "description": "Triage was performed by multiple roles (Senior Adjuster, Triage Specialist), creating duplicate handoffs and unclear accountability.",
+    "step_id": "step_triage",
+    "entity_id": null,
+    "confidence": 0.78,
+    "suggested_action": "Assign a single owner per claim with a documented tie-break rule.",
+    "evidence": [
+      {
+        "artifact_id": "art_005",
+        "document_id": null,
+        "page": null,
+        "cell": null,
+        "line": null,
+        "quote": "triage roles: Senior Adjuster, Triage Specialist"
+      }
+    ]
+  },
+  {
+    "id": "risk_status_007",
+    "category": "inconsistent_status",
+    "severity": "med",
+    "title": "Conflicting status vocabularies",
+    "description": "The same terminal state is recorded under 4 different labels (CLOSED, Closed - Paid, Closed-Disbursed, Paid), breaking reconciliation.",
+    "step_id": null,
+    "entity_id": null,
+    "confidence": 0.8,
+    "suggested_action": "Adopt a single canonical status enum across registers.",
+    "evidence": [
+      {
+        "artifact_id": "art_005",
+        "document_id": null,
+        "page": null,
+        "cell": null,
+        "line": null,
+        "quote": "CLOSED, Closed - Paid, Closed-Disbursed, Paid"
+      }
+    ]
+  },
+  {
+    "id": "risk_lowconf_008",
+    "category": "low_confidence",
+    "severity": "low",
+    "title": "Low-confidence extraction from dashboard screenshot",
+    "description": "Counts were OCR'd from a screenshot at 56% confidence; confirm against the source system.",
+    "step_id": null,
+    "entity_id": null,
+    "confidence": 0.57,
+    "suggested_action": "Pull counts from the source system rather than a screenshot.",
+    "evidence": [
+      {
+        "artifact_id": "art_004",
+        "document_id": null,
+        "page": null,
+        "cell": null,
+        "line": null,
+        "quote": "OCR of dashboard tiles"
+      }
+    ]
+  }
 ]

@@ -1,8 +1,140 @@
 [
-  { "id": "auto_001", "title": "Auto-route intake by severity", "description": "Classify and assign incoming claims to the right triage tier automatically, removing the manual triage handoff.", "target_step_id": "step_triage", "est_time_saved_hours_per_week": 9, "confidence": 0.86, "required_oversight": "light", "implementation_complexity": "med", "value_score": 0.82, "effort_score": 0.45, "priority_rank": 1, "evidence": [{ "artifact_id": "art_004", "page": 3 }] },
-  { "id": "auto_002", "title": "Pre-disbursement duplicate check", "description": "Block payment when a matching prior claim exists, eliminating the duplicate-payment exception loop.", "target_step_id": "step_payment", "est_time_saved_hours_per_week": 6, "confidence": 0.83, "required_oversight": "strict", "implementation_complexity": "low", "value_score": 0.79, "effort_score": 0.3, "priority_rank": 2, "evidence": [{ "artifact_id": "art_007" }] },
-  { "id": "auto_003", "title": "Prefill structured claim form", "description": "Extract claimant + policy fields from intake submissions to prefill the form, cutting intake time and transcription errors.", "target_step_id": "step_intake", "est_time_saved_hours_per_week": 5, "confidence": 0.8, "required_oversight": "light", "implementation_complexity": "med", "value_score": 0.7, "effort_score": 0.5, "priority_rank": 3, "evidence": [{ "artifact_id": "art_005", "page": 1 }] },
-  { "id": "auto_004", "title": "Approval SLA alerts", "description": "Alert when a claim sits in Manager Approval past its SLA, directly targeting the process bottleneck.", "target_step_id": "step_approval", "est_time_saved_hours_per_week": 7, "confidence": 0.81, "required_oversight": "none", "implementation_complexity": "low", "value_score": 0.74, "effort_score": 0.2, "priority_rank": 4, "evidence": [{ "artifact_id": "art_006" }] },
-  { "id": "auto_005", "title": "PII redaction on ingest", "description": "Detect and mask SSN/DOB/address in free-text and emails at intake, closing the top governance gap.", "target_step_id": "step_review", "est_time_saved_hours_per_week": 3, "confidence": 0.88, "required_oversight": "strict", "implementation_complexity": "med", "value_score": 0.76, "effort_score": 0.55, "priority_rank": 5, "evidence": [{ "artifact_id": "art_009", "line": 7 }] },
-  { "id": "auto_006", "title": "Auto-generate claim summary notes", "description": "Summarize each claim's documents into a consistent note, replacing ad-hoc free-text status entries.", "target_step_id": "step_review", "est_time_saved_hours_per_week": 4, "confidence": 0.72, "required_oversight": "light", "implementation_complexity": "med", "value_score": 0.6, "effort_score": 0.5, "priority_rank": 6, "evidence": [{ "artifact_id": "art_009" }] }
+  {
+    "id": "auto_001",
+    "title": "SLA alerts on Manager Approval",
+    "description": "Alert when a claim dwells past SLA at Manager Approval (~40.0h average) — directly targets the bottleneck.",
+    "target_step_id": "step_approval",
+    "est_time_saved_hours_per_week": 8.0,
+    "confidence": 0.81,
+    "required_oversight": "none",
+    "implementation_complexity": "low",
+    "value_score": 0.78,
+    "effort_score": 0.2,
+    "priority_rank": 1,
+    "evidence": [
+      {
+        "artifact_id": "art_005",
+        "document_id": null,
+        "page": null,
+        "cell": null,
+        "line": null,
+        "quote": null
+      }
+    ]
+  },
+  {
+    "id": "auto_003",
+    "title": "Enforce review routing",
+    "description": "Block intake→approval shortcuts; require Document Review (or a logged, controlled fast-track) for every claim.",
+    "target_step_id": "step_review",
+    "est_time_saved_hours_per_week": 4.0,
+    "confidence": 0.83,
+    "required_oversight": "strict",
+    "implementation_complexity": "low",
+    "value_score": 0.77,
+    "effort_score": 0.3,
+    "priority_rank": 2,
+    "evidence": [
+      {
+        "artifact_id": "art_005",
+        "document_id": null,
+        "page": null,
+        "cell": null,
+        "line": null,
+        "quote": null
+      }
+    ]
+  },
+  {
+    "id": "auto_002",
+    "title": "Auto-route intake by severity",
+    "description": "Classify and assign incoming claims automatically, removing the ambiguous manual triage handoff.",
+    "target_step_id": "step_triage",
+    "est_time_saved_hours_per_week": 9.0,
+    "confidence": 0.86,
+    "required_oversight": "light",
+    "implementation_complexity": "med",
+    "value_score": 0.82,
+    "effort_score": 0.45,
+    "priority_rank": 3,
+    "evidence": [
+      {
+        "artifact_id": "art_005",
+        "document_id": null,
+        "page": null,
+        "cell": null,
+        "line": null,
+        "quote": null
+      }
+    ]
+  },
+  {
+    "id": "auto_005",
+    "title": "Prefill structured claim form",
+    "description": "Extract claimant + policy fields from submissions to prefill intake, cutting transcription time and errors.",
+    "target_step_id": "step_intake",
+    "est_time_saved_hours_per_week": 5.0,
+    "confidence": 0.8,
+    "required_oversight": "light",
+    "implementation_complexity": "med",
+    "value_score": 0.7,
+    "effort_score": 0.5,
+    "priority_rank": 4,
+    "evidence": [
+      {
+        "artifact_id": "art_005",
+        "document_id": null,
+        "page": null,
+        "cell": null,
+        "line": null,
+        "quote": null
+      }
+    ]
+  },
+  {
+    "id": "auto_004",
+    "title": "PII redaction on ingest",
+    "description": "Detect and mask SSN/DOB/address in free text and emails at intake, closing the top governance gap.",
+    "target_step_id": "step_review",
+    "est_time_saved_hours_per_week": 3.0,
+    "confidence": 0.88,
+    "required_oversight": "strict",
+    "implementation_complexity": "med",
+    "value_score": 0.76,
+    "effort_score": 0.55,
+    "priority_rank": 5,
+    "evidence": [
+      {
+        "artifact_id": "art_005",
+        "document_id": null,
+        "page": null,
+        "cell": null,
+        "line": null,
+        "quote": null
+      }
+    ]
+  },
+  {
+    "id": "auto_006",
+    "title": "Auto-generate claim summary notes",
+    "description": "Summarize each claim's documents into a consistent note, replacing ad-hoc free-text statuses.",
+    "target_step_id": "step_review",
+    "est_time_saved_hours_per_week": 4.0,
+    "confidence": 0.72,
+    "required_oversight": "light",
+    "implementation_complexity": "med",
+    "value_score": 0.6,
+    "effort_score": 0.5,
+    "priority_rank": 6,
+    "evidence": [
+      {
+        "artifact_id": "art_005",
+        "document_id": null,
+        "page": null,
+        "cell": null,
+        "line": null,
+        "quote": null
+      }
+    ]
+  }
 ]

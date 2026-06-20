@@ -1,0 +1,17 @@
+From: dana.adjuster@meridian-claims.example
+To: m.reyes@meridian-claims.example
+Cc: finance-team@meridian-claims.example
+Subject: RE: approval needed - claim CLM-4407
+Date: Wed, 18 Feb 2026 14:22:00 -0700
+
+Mike — still waiting on your sign-off for CLM-4407, this is the 3rd day. Finance is
+ready to disburse the moment you approve. For verification: claimant DOB 1979-03-04,
+home address 88 Birch Lane, Apt 4, Cedar Falls.
+
+We fast-tracked this one and skipped document review since it's a small claim — let me
+know if that's a problem.
+
+— Dana
+
+> On Feb 18, 2026, at 9:01 AM, M. Reyes wrote:
+> Approved verbally in standup, go ahead. (will attach the form later)

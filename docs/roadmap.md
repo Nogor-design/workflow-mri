@@ -56,15 +56,26 @@ finished product. **Capture the flagship screenshot/GIF here.**
 
 **Goal:** `make bundle` regenerates the Meridian Bundle from `samples/` for real.
 
-- [ ] Author the fictional `samples/meridian-claims/` inputs (messy on purpose).
-- [ ] `llm/` — `LLMClient` protocol + Ollama (default) + Claude clients; config/env switch.
-- [ ] Ingestion: file detection, text/OCR extraction → `Artifact`/`Document`.
-- [ ] Extraction: LLM + rules → `Entity`/`WorkflowStep` with confidence; constrained/validated output.
-- [ ] Graph builder: `ProcessEdge`s + bottleneck/loop/duplicate diagnostics (deterministic).
-- [ ] `export/` assembles a schema-valid Bundle; reconcile against the Phase-1 golden Bundle.
+- [x] Author the fictional `samples/meridian-claims/` inputs (messy on purpose): a claims
+      **event log** CSV (variant labels, mixed status vocab, planted PII, loop/bypass/dup
+      cases), a second payment register, SOP, notes, email, and a screenshot OCR sidecar.
+- [x] `llm/` — `LLMClient` protocol + Ollama (default) + Claude clients; `WORKFLOW_MRI_LLM`
+      switch. Optional enrichment only; the core pipeline is deterministic and offline.
+- [x] Ingestion: folder walk, kind detection, text/row loading → `Artifact` records.
+- [x] Extraction + graph: **process-mining** a directly-follows graph from the event log →
+      `WorkflowStep`/`ProcessEdge` with cycle times, bottleneck, loop/duplicate/bypass.
+- [x] Risk rules (PII regex, missing-approval, review-bypass, ambiguous-ownership,
+      inconsistent-status, low-confidence), recommender, and before/after simulation.
+- [x] `export/` writes a schema-valid Bundle; `python -m workflow_mri build [--promote]` +
+      `make bundle` / `make promote`. 9 pipeline tests assert the golden shape.
 
 **Done when:** the generated Bundle renders in the existing UI with no UI changes, and
-matches the golden Bundle's shape.
+matches the golden Bundle's shape. ✅ **Met 2026-06-20** — promoted bundle drives the web app
+(7 steps, all 5 edge kinds, 8 risks across all 6 categories); web build + 11 engine tests green.
+
+> Note: the deterministic engine reconstructs the process by **mining the event log** (a real
+> analytic technique), with the LLM as optional enrichment — chosen so `make bundle` is
+> reproducible and runs offline/in CI. See [architecture](architecture.md).
 
 ---
 

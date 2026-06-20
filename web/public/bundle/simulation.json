@@ -1,13 +1,23 @@
 {
   "is_simulated": true,
-  "before": { "total_cycle_time_hours": 92, "handoffs": 14, "rework_rate": 0.22, "monthly_cost": 41000 },
-  "after": { "total_cycle_time_hours": 51, "handoffs": 9, "rework_rate": 0.08, "monthly_cost": 24500 },
+  "before": {
+    "total_cycle_time_hours": 108.0,
+    "handoffs": 8,
+    "rework_rate": 0.27,
+    "monthly_cost": 13700.0
+  },
+  "after": {
+    "total_cycle_time_hours": 71.0,
+    "handoffs": 5,
+    "rework_rate": 0.09,
+    "monthly_cost": 9000.0
+  },
   "assumptions": [
     "Volume held constant at ~320 claims/month (fictional).",
-    "Auto-routing removes one manual triage handoff per claim.",
-    "Duplicate-check + review enforcement cut the rework loop by ~65%.",
-    "SLA alerts reduce average approval dwell from 38h to ~18h.",
-    "Labor costed at a flat fictional blended rate; illustrative only."
+    "Auto-routing removes the duplicated triage handoff.",
+    "Review enforcement + duplicate checks cut the rework loop by ~65%.",
+    "SLA alerts halve the bottleneck's average dwell.",
+    "Labor costed at a flat fictional $95/hr blended rate; illustrative only."
   ],
-  "method": "deterministic queueing estimate over the reconstructed process graph"
+  "method": "deterministic estimate over the mined directly-follows graph"
 }

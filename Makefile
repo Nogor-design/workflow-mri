@@ -32,10 +32,10 @@ test-web:
 	cd web && npm test
 
 bundle:
-	@echo "TODO (Phase 2): generate Artifact Bundle from samples/meridian-claims/"
+	cd engine && python -m workflow_mri build
 
 promote:
-	@echo "TODO (Phase 1): copy a verified bundle into web/public/bundle/"
+	cd engine && python -m workflow_mri build --promote
 
 types:
 	@echo "TODO (Phase 2): generate web/src TS types from engine Pydantic schema"

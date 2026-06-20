@@ -6,14 +6,21 @@
     "fictional": true,
     "domain": "insurance-claims"
   },
-  "generated_at": "2026-06-20T08:00:00-06:00",
+  "generated_at": "2026-06-20T16:44:01-06:00",
   "engine": {
     "llm_backend": "ollama",
-    "model": "llama3.1:8b",
+    "model": "deterministic (process-mining + rules)",
     "prompt_set": "v1",
-    "temperature": 0
+    "temperature": 0.0
   },
-  "counts": { "artifacts": 23, "steps": 7, "edges": 9, "risks": 11, "automations": 6, "reviews": 4 },
+  "counts": {
+    "artifacts": 6,
+    "steps": 7,
+    "edges": 8,
+    "risks": 8,
+    "automations": 6,
+    "reviews": 5
+  },
   "safe_mode": true,
   "hashes": {}
 }

@@ -1,0 +1,9 @@
+Adjuster working notes — week 12 (FICTIONAL sample data)
+
+CLM-4402: coverage verified, damages look legit. basically done, just waiting on manager.
+CLM-4403: claimant called twice. SSN 412-55-9981 on file, DOB 1979-03-04. flagged for fraud review.
+CLM-4405: two of us picked this up at triage, not sure who owns it now. duplicated some work.
+CLM-4407: small claim, manager said fast-track it and skip the doc review step.
+CLM-4409: kicked back from exception again, 2nd time this month. rework is killing our cycle time.
+
+status shorthand we use: "WIP", "basically done", "paid out", "closed" — never matches the system labels.

@@ -1,0 +1,8 @@
+# OCR sidecar for dashboard_open_claims.png (FICTIONAL)
+# Low-fidelity text extracted from a dashboard screenshot — confirm against source system.
+
+Open Claims    | 41
+In Review      | 17
+Awaiting Appr. | 9    <- highest dwell
+Paid (MTD)     | 128
+Exceptions     | 6

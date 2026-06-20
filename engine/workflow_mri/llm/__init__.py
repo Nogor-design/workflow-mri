@@ -29,13 +29,16 @@ class LLMClient(Protocol):
 def get_client(backend: Optional[str] = None) -> "LLMClient":
     """Select a backend by arg, then $WORKFLOW_MRI_LLM, defaulting to local Ollama.
 
-    Not yet implemented (Phase 2). Defined now so config wiring and types are stable.
+    Optional — the core pipeline is deterministic and never calls this; enrichment opts in.
     """
-    backend = backend or os.environ.get("WORKFLOW_MRI_LLM", "ollama")
-    raise NotImplementedError(
-        f"LLM backend '{backend}' not implemented until roadmap Phase 2 "
-        "(OllamaClient / ClaudeClient)."
-    )
+    backend = (backend or os.environ.get("WORKFLOW_MRI_LLM", "ollama")).lower()
+    from workflow_mri.llm.clients import ClaudeClient, OllamaClient
+
+    if backend == "ollama":
+        return OllamaClient()
+    if backend == "claude":
+        return ClaudeClient()
+    raise ValueError(f"Unknown LLM backend '{backend}' (expected 'ollama' or 'claude').")
 
 
 __all__ = ["LLMClient", "get_client"]

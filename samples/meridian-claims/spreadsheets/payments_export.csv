@@ -1,0 +1,7 @@
+claim_id,amount,disbursed_on,state
+CLM-4401,4200.00,2026-02-10,Closed-Disbursed
+CLM-4402,1850.50,2026-02-13,Closed-Disbursed
+CLM-4404,9100.00,2026-02-20,Paid
+CLM-4406,2750.00,2026-02-24,Closed-Disbursed
+CLM-4407,640.00,2026-02-22,Paid
+CLM-4408,5300.00,2026-02-28,Closed-Disbursed

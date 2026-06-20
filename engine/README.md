@@ -6,10 +6,25 @@ typed, JSON-safe **Artifact Bundle** (the contract consumed by `web/`).
 See [`../docs/architecture.md`](../docs/architecture.md) for the full pipeline and
 [`../docs/data-model.md`](../docs/data-model.md) for the Bundle schema.
 
+## Build a bundle
+
+```bash
+pip install -e .
+python -m workflow_mri build            # -> bundles/<run_id>/
+python -m workflow_mri build --promote  # also copy into web/public/bundle/
+# or: make bundle  /  make promote
+```
+
+The pipeline: **ingest** the sample folder → **mine** a directly-follows process graph from
+the claims event log (steps, cycle times, bottleneck, loop/duplicate/bypass edges) →
+**detect risks** with rules over structured + unstructured artifacts → **recommend** +
+**simulate** → **export** a schema-valid Artifact Bundle. Deterministic and offline.
+
 ## Packages (`workflow_mri/`)
 
-`llm/` · `ingestion/` · `extraction/` · `graph/` · `risk/` · `recommend/` · `simulate/` ·
-`export/` · `agents/` · `schema/` — each carries a one-line docstring describing its job.
+`llm/` (clients) · `ingestion/` (loader) · `extraction/` (event-log normalize) ·
+`graph/` (process mining) · `risk/` (rules) · `recommend/` · `simulate/` · `export/` ·
+`schema/` (Bundle contract) · `pipeline.py` · `cli.py`.
 
 ## LLM backend
 
@@ -20,4 +35,6 @@ reason about model behavior from memory.
 
 ## Status
 
-Phase 0 stubs only. Implementation begins in roadmap Phase 2.
+Phase 2 complete — the engine mines a schema-valid Bundle from `samples/meridian-claims/`
+that renders unchanged in the web app. 11 tests (`python -m pytest`). LLM enrichment
+(Phase 3, optional) and evals (Phase 4) are next.
