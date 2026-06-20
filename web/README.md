@@ -3,6 +3,7 @@
 React + Vite static SPA. A **pure renderer** of the Artifact Bundle — no inference, no IO
 beyond loading its own static Bundle. Deploys free to GitHub Pages.
 
+
 See [`../DESIGN.md`](../DESIGN.md) §9 for the view spec and
 [`../docs/data-model.md`](../docs/data-model.md) for the Bundle it consumes.
 
