@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "workflow-mri-engine"
+version = "0.1.0"
+description = "Local-first multi-agent engine that turns messy company artifacts into an Artifact Bundle."
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.7",
+]
+
+[project.optional-dependencies]
+# Real pipeline deps land in roadmap Phase 2; kept optional so Phase 0 installs lean.
+llm = ["ollama>=0.3", "anthropic>=0.40"]
+agents = ["langgraph>=0.2"]
+ingest = ["pypdf>=4.2", "pandas>=2.2", "openpyxl>=3.1"]
+dev = ["pytest>=8", "ruff>=0.6", "mypy>=1.11"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["workflow_mri*"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
