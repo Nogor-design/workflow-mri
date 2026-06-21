@@ -7,7 +7,7 @@ export function ExportView({ bundle }: { bundle: Bundle }) {
     <div className="view">
       <div className="view-head">
         <h2>Export &amp; Handoff</h2>
-        <p>Everything an engineering team needs to pick this up tomorrow. (Downloads are stubbed in the Phase&nbsp;1 demo.)</p>
+        <p>Everything an engineering team needs to pick this up tomorrow. Downloads are disabled in the public demo, while the generated bundle files are published with the static app.</p>
       </div>
 
       <div className="export-list">
