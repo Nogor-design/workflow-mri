@@ -37,6 +37,21 @@ export function ExportView({ bundle }: { bundle: Bundle }) {
           </div>
         ))}
       </div>
+
+      {bundle.audit.length > 0 && (
+        <div className="audit-trail">
+          <span className="k">Audit trail — {bundle.audit.length} agent decisions</span>
+          <ol className="audit-list">
+            {bundle.audit.map((e) => (
+              <li key={e.id} className="audit-row">
+                <span className="audit-actor">{e.actor.replace("agent:", "")}</span>
+                <span className="audit-detail">{e.detail}</span>
+                {e.llm_call && <span className="pill pill-dim">{e.llm_call.model}</span>}
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
     </div>
   );
 }

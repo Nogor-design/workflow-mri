@@ -4,7 +4,7 @@
     "kind": "email",
     "source_name": "approval_4471.txt",
     "detected_type": "approval thread",
-    "ingested_at": "2026-06-20T16:44:01-06:00",
+    "ingested_at": "2026-06-20T18:12:25-06:00",
     "page_count": 1,
     "extraction_confidence": 0.76,
     "thumbnail_asset_id": null
@@ -14,7 +14,7 @@
     "kind": "note",
     "source_name": "adjuster_notes_week12.txt",
     "detected_type": "employee notes",
-    "ingested_at": "2026-06-20T16:44:01-06:00",
+    "ingested_at": "2026-06-20T18:12:25-06:00",
     "page_count": 1,
     "extraction_confidence": 0.66,
     "thumbnail_asset_id": null
@@ -24,7 +24,7 @@
     "kind": "pdf",
     "source_name": "claims_sop.md",
     "detected_type": "standard operating procedure",
-    "ingested_at": "2026-06-20T16:44:01-06:00",
+    "ingested_at": "2026-06-20T18:12:25-06:00",
     "page_count": 1,
     "extraction_confidence": 0.82,
     "thumbnail_asset_id": null
@@ -34,7 +34,7 @@
     "kind": "screenshot",
     "source_name": "dashboard_open_claims.ocr.txt",
     "detected_type": "dashboard screenshot",
-    "ingested_at": "2026-06-20T16:44:01-06:00",
+    "ingested_at": "2026-06-20T18:12:25-06:00",
     "page_count": 1,
     "extraction_confidence": 0.57,
     "thumbnail_asset_id": null
@@ -44,7 +44,7 @@
     "kind": "csv",
     "source_name": "claims_event_log.csv",
     "detected_type": "claim event log",
-    "ingested_at": "2026-06-20T16:44:01-06:00",
+    "ingested_at": "2026-06-20T18:12:25-06:00",
     "page_count": 1,
     "extraction_confidence": 0.92,
     "thumbnail_asset_id": null
@@ -54,7 +54,7 @@
     "kind": "csv",
     "source_name": "payments_export.csv",
     "detected_type": "payment ledger",
-    "ingested_at": "2026-06-20T16:44:01-06:00",
+    "ingested_at": "2026-06-20T18:12:25-06:00",
     "page_count": 1,
     "extraction_confidence": 0.92,
     "thumbnail_asset_id": null

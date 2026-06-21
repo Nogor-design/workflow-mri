@@ -138,6 +138,23 @@ export interface SimulationResult {
   method: string;
 }
 
+export interface LLMCallInfo {
+  prompt_id: string;
+  model: string;
+  tokens?: number;
+  latency_ms?: number;
+}
+
+export interface AuditEvent {
+  id: string;
+  at: string;
+  actor: string;
+  action: string;
+  target_id?: string;
+  detail?: string;
+  llm_call?: LLMCallInfo;
+}
+
 export interface ExportFile {
   id: string;
   label: string;
@@ -155,5 +172,6 @@ export interface Bundle {
   reviews: ReviewTask[];
   automations: AutomationCandidate[];
   simulation: SimulationResult | null;
+  audit: AuditEvent[];
   exports: ExportFile[];
 }

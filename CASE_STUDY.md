@@ -110,12 +110,18 @@ Governance is a **first-class feature, not a footnote**:
   nothing to leak; no secrets in the repo; the simulation is labeled simulated. See
   [docs/public-safety.md](docs/public-safety.md).
 
+The pipeline is wired as a **LangGraph multi-agent graph** (ingest → graph → risk →
+recommend → simulate → enrich → assemble → critic) with a **critic/review pass** that audits
+the assembled bundle, and an **audit trail** emitting an event per agent decision (shown in
+the demo's Export view). It falls back to a deterministic sequential runner when LangGraph
+isn't installed — so the same output is reproducible offline and in CI.
+
 ## What I'd build next
 
-- LangGraph multi-agent wiring with a critic/review pass, making the LLM enrichment a
-  first-class extraction path alongside the deterministic miner (Phase 3).
 - A second sample company (onboarding or support) to prove the engine generalizes beyond
   claims.
+- Promote the optional LLM enrichment node to a full extraction path graded against the
+  deterministic miner.
 - An optional, local-only "bring your own folder" mode (never on the public path).
 - Adversarial evals: red-team the extractor on deliberately degraded inputs.
 

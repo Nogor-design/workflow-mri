@@ -24,7 +24,7 @@
     "id": "exp_audit",
     "label": "Audit Log",
     "kind": "json",
-    "path_in_bundle": "exports/audit.json",
+    "path_in_bundle": "audit.json",
     "description": "Decision/inference trail for the run."
   },
   {

@@ -83,14 +83,25 @@ matches the golden Bundle's shape. ✅ **Met 2026-06-20** — promoted bundle dr
 
 **Goal:** the parts that make it memorable rather than just a graph.
 
-- [ ] Risk engine: rules + LLM → `RiskFinding`s (PII, missing approvals, inconsistent
-      status, ambiguous ownership, review-bypass, low-confidence) with evidence links.
-- [ ] Review queue: `ReviewTask`s + approve/override/reject state in the audit log.
-- [ ] Automation recommender: value × effort × oversight scoring → ranked `AutomationCandidate`s.
-- [ ] Simulation: deterministic before/after cycle-time & cost over the graph (labeled simulated).
-- [ ] LangGraph agent wiring with a critic/review pass; emit `AuditEvent`s for every decision.
+- [x] Risk engine: rules → `RiskFinding`s (PII, missing approvals, inconsistent status,
+      ambiguous ownership, review-bypass, low-confidence) with evidence links. *(Phase 2)*
+- [x] Review queue: `ReviewTask`s from high-severity findings, with required roles. *(Phase 2)*
+- [x] Automation recommender: value × effort × oversight scoring → ranked candidates. *(Phase 2)*
+- [x] Simulation: deterministic before/after cycle-time & cost over the graph. *(Phase 2)*
+- [x] **Agent wiring** (`agents/`): ingest → graph → risk → recommend → simulate → enrich →
+      assemble → critic, as a **LangGraph StateGraph** (with a deterministic sequential
+      fallback when LangGraph isn't installed — same nodes, same output, keeps CI offline).
+- [x] **Critic/review pass** validates the assembled bundle (edges→steps, every high-sev risk
+      has a review task, evidence references real artifacts, PII quotes contain real PII,
+      manifest counts match) and records the verdict.
+- [x] **`AuditEvent` per decision** — emitted by every node, exported as `audit.json`, and
+      shown in the showcase's Export view.
+- [x] **Optional LLM enrichment node** (`--enrich`, default off) — first-class extraction
+      seam using the pluggable Ollama/Claude client; degrades gracefully if unavailable.
 
 **Done when:** the full Bundle is engine-generated end-to-end and governance objects are real.
+✅ **Met 2026-06-20** — 19 engine tests green (incl. runner-equivalence + critic + audit);
+audit trail visible in the demo.
 
 ---
 

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "evt_001",
+    "at": "2026-06-20T18:12:24-06:00",
+    "actor": "agent:ingest",
+    "action": "ingest",
+    "target_id": null,
+    "detail": "loaded 6 artifacts; parsed 74 events from claims_event_log.csv",
+    "llm_call": null
+  },
+  {
+    "id": "evt_002",
+    "at": "2026-06-20T18:12:24-06:00",
+    "actor": "agent:graph",
+    "action": "mine_process",
+    "target_id": "step_approval",
+    "detail": "mined 7 steps, 8 edges (bypass, duplicate, exception, loop, normal); bottleneck=step_approval",
+    "llm_call": null
+  },
+  {
+    "id": "evt_003",
+    "at": "2026-06-20T18:12:24-06:00",
+    "actor": "agent:risk",
+    "action": "detect_risks",
+    "target_id": null,
+    "detail": "detected 8 findings across 6 categories: ambiguous_ownership, inconsistent_status, low_confidence, missing_approval, pii, review_bypass",
+    "llm_call": null
+  },
+  {
+    "id": "evt_004",
+    "at": "2026-06-20T18:12:24-06:00",
+    "actor": "agent:recommender",
+    "action": "recommend",
+    "target_id": null,
+    "detail": "ranked 6 automation candidates by value/effort",
+    "llm_call": null
+  },
+  {
+    "id": "evt_005",
+    "at": "2026-06-20T18:12:24-06:00",
+    "actor": "agent:simulator",
+    "action": "simulate",
+    "target_id": null,
+    "detail": "before/after estimate: cycle time -37.0h (simulated)",
+    "llm_call": null
+  },
+  {
+    "id": "evt_006",
+    "at": "2026-06-20T18:12:24-06:00",
+    "actor": "agent:enricher",
+    "action": "skip_enrich",
+    "target_id": null,
+    "detail": "LLM enrichment disabled (deterministic descriptions kept)",
+    "llm_call": null
+  },
+  {
+    "id": "evt_007",
+    "at": "2026-06-20T18:12:24-06:00",
+    "actor": "agent:assembler",
+    "action": "assemble",
+    "target_id": null,
+    "detail": "assembled bundle: 5 review tasks from high-severity findings",
+    "llm_call": null
+  },
+  {
+    "id": "evt_008",
+    "at": "2026-06-20T18:12:24-06:00",
+    "actor": "agent:critic",
+    "action": "review",
+    "target_id": null,
+    "detail": "critic passed",
+    "llm_call": null
+  }
+]

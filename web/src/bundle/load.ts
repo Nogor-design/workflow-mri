@@ -1,5 +1,6 @@
 import type {
   Artifact,
+  AuditEvent,
   AutomationCandidate,
   Bundle,
   ExportFile,
@@ -20,7 +21,7 @@ async function getJson<T>(name: string): Promise<T> {
 }
 
 export async function loadBundle(): Promise<Bundle> {
-  const [manifest, artifacts, steps, edges, risks, reviews, automations, simulation, exports] =
+  const [manifest, artifacts, steps, edges, risks, reviews, automations, simulation, audit, exports] =
     await Promise.all([
       getJson<Manifest>("manifest.json"),
       getJson<Artifact[]>("artifacts.json"),
@@ -30,6 +31,7 @@ export async function loadBundle(): Promise<Bundle> {
       getJson<ReviewTask[]>("reviews.json"),
       getJson<AutomationCandidate[]>("automations.json"),
       getJson<SimulationResult>("simulation.json"),
+      getJson<AuditEvent[]>("audit.json"),
       getJson<ExportFile[]>("exports.json"),
     ]);
 
@@ -44,6 +46,7 @@ export async function loadBundle(): Promise<Bundle> {
       (a, b) => (a.priority_rank ?? 99) - (b.priority_rank ?? 99),
     ),
     simulation,
+    audit,
     exports,
   };
 }

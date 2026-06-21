@@ -20,6 +20,7 @@ _FILES = {
     "reviews.json": "reviews",
     "automations.json": "automations",
     "simulation.json": "simulation",
+    "audit.json": "audit",
     "exports.json": "exports",
 }
 

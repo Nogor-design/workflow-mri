@@ -27,10 +27,11 @@ def main(argv: list[str] | None = None) -> int:
     b.add_argument("--out", type=Path, default=None, help="output dir (default bundles/<run_id>/)")
     b.add_argument("--run-id", default=None)
     b.add_argument("--promote", action="store_true", help="also copy the bundle into web/public/bundle/")
+    b.add_argument("--enrich", action="store_true", help="run the optional LLM enrichment pass (needs Ollama/Claude)")
 
     args = parser.parse_args(argv)
     if args.cmd == "build":
-        bundle = build_bundle(args.samples, run_id=args.run_id)
+        bundle = build_bundle(args.samples, run_id=args.run_id, enrich=args.enrich)
         out = args.out or (REPO_ROOT / "bundles" / bundle.manifest.run_id)
         write_bundle(bundle, out)
         c = bundle.manifest.counts

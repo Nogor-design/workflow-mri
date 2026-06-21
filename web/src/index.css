@@ -186,6 +186,13 @@ body {
 .rq-status { font-family: var(--mono); font-size: 10px; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; }
 .rq-open { color: var(--warn); background: #2a2210; }
 .rq-reason { flex: 1; color: var(--text-dim); }
+.audit-trail { margin-top: 24px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-tile); padding: 18px 20px; }
+.audit-list { margin: 0; padding: 0; list-style: none; counter-reset: a; }
+.audit-row { display: flex; align-items: baseline; gap: 11px; padding: 8px 0; border-top: 1px solid var(--border); font-size: 13px; }
+.audit-row:first-child { border-top: none; }
+.audit-row::before { counter-increment: a; content: counter(a); font-family: var(--mono); font-size: 10px; color: var(--text-faint); width: 16px; }
+.audit-actor { font-family: var(--mono); font-size: 11.5px; color: var(--accent); min-width: 92px; }
+.audit-detail { flex: 1; color: var(--text-dim); }
 
 /* ===== Landing ===== */
 .status-chip { font-family: var(--mono); font-size: 11px; color: var(--accent); border: 1px solid var(--accent-dim); background: #0c1722; border-radius: 999px; padding: 4px 11px; }

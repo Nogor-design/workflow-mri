@@ -49,9 +49,14 @@ Cross-cutting:
 
 - **`llm/`** — `LLMClient` protocol; `OllamaClient` (default) and `ClaudeClient`. Chosen by
   config/env. Prompts are versioned; every call is recorded as an `AuditEvent` and fed to evals.
-- **`agents/`** — LangGraph orchestration wiring stages 2–5 as agents (extraction → graph →
-  risk → recommender) with a **critic/review pass** and human-in-the-loop seams that emit
-  `ReviewTask`s.
+- **`agents/`** — orchestration wiring every stage as a node (ingest → graph → risk →
+  recommend → simulate → enrich → assemble → **critic**). Runs as a **LangGraph StateGraph**
+  when `langgraph` is installed, else a deterministic sequential runner over the same nodes —
+  identical output either way, so the pipeline stays offline-reproducible (CI installs
+  neither LangGraph nor an LLM). Every node emits an `AuditEvent`; the critic validates the
+  assembled bundle (edge/step integrity, review-task coverage, evidence references real
+  artifacts, PII quotes contain real PII, manifest counts) and records its verdict. The
+  optional `enrich` node (opt-in `--enrich`) is the first-class LLM seam.
 - **`schema/`** — Pydantic models; the source of truth for the Bundle. `make types` emits
   matching TypeScript into `web/src/`.
 - **`evals/`** — synthetic ground truth for the sample company; reports accuracy/recall/hallucination.
